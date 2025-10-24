@@ -1,13 +1,33 @@
-interface SearchBarProps {
-    title: string;
+import { useEffect, useState } from "react";
 
+interface SearchBarProps {
+  title: string;
+  onQuery: (query: string) => void;
 }
 
-export const SearchBar = ({title}: SearchBarProps) => {
+export const SearchBar = ({ title = "Buscar", onQuery }: SearchBarProps) => {
+  const [query, setQuery] = useState('')
+  useEffect(()=>{
+    console.log("prueba");
+    
+  },[])
+
+  const handleSearch = () => {
+    onQuery(query)
+  }
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>)=>{
+          if( event.key=== 'Enter') handleSearch();
+        }
+
   return (
-   <div className="search-container">
-        <input type="text"  placeholder="Buscar gifs"/>
-        <button>{title}</button>
+    <div className="search-container">
+      <h1>{query}</h1>
+      <input type="text" onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={handleKeyDown}
+        value={query}
+        placeholder="Buscar gifs" />
+      <button onClick={handleSearch}
+      >{title}</button>
     </div>
   )
 }
