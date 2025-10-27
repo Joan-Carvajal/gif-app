@@ -21,7 +21,7 @@ export const SearchBar = ({ title = "Buscar", onQuery }: SearchBarProps) => {
 
   return (
     <div className="search-container">
-      <h1>{query}</h1>
+     
       <input type="text" onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
         value={query}

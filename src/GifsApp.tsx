@@ -8,10 +8,19 @@ import { SearchBar } from "./shared/components/SearchBar"
 const GifsApp = () => {
   const [previusTerms, setPreviusTerms] = useState(['Goku', 'Naruto', 'Saitama', 'Luffy'])
   const handleTermClick = (term: string)=>{
+     
+
+
     console.log(term);
   }
   const handleSearch = (query:string) =>{
+     query = query.trim().toLocaleLowerCase();
+     if(query.length ===0) return;
+    if(previusTerms.includes(query)) return;
+    setPreviusTerms([query, ...previusTerms].splice(0,8))
     console.log(query);
+    
+    
     
   }
   return (
