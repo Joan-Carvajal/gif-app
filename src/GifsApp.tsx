@@ -8,8 +8,6 @@ import { SearchBar } from "./shared/components/SearchBar"
 const GifsApp = () => {
   const [previusTerms, setPreviusTerms] = useState(['Goku', 'Naruto', 'Saitama', 'Luffy'])
   const handleTermClick = (term: string)=>{
-     
-
 
     console.log(term);
   }
